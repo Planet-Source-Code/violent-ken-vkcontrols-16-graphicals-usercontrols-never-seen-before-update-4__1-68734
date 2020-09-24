@@ -1,0 +1,116 @@
+VERSION 5.00
+Begin VB.PropertyPage propSysTray 
+   Caption         =   "General"
+   ClientHeight    =   3600
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   4800
+   BeginProperty Font 
+      Name            =   "Tahoma"
+      Size            =   8.25
+      Charset         =   0
+      Weight          =   400
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
+   PaletteMode     =   0  'Halftone
+   ScaleHeight     =   3600
+   ScaleWidth      =   4800
+   Begin VB.CheckBox Check1 
+      Caption         =   "Prevent systray from Explorer crash"
+      Height          =   1575
+      Left            =   120
+      TabIndex        =   2
+      Top             =   720
+      Width           =   4215
+   End
+   Begin VB.TextBox txtCaption 
+      Height          =   285
+      Left            =   1200
+      TabIndex        =   0
+      Top             =   360
+      Width           =   1935
+   End
+   Begin VB.Label Label1 
+      Caption         =   "Balloon string"
+      Height          =   255
+      Index           =   0
+      Left            =   120
+      TabIndex        =   1
+      Top             =   360
+      Width           =   975
+   End
+End
+Attribute VB_Name = "propSysTray"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = False
+Attribute VB_Exposed = True
+' =======================================================
+'
+' vkUserControlsXP
+' Coded by violent_ken (Alain Descotes)
+'
+' =======================================================
+'
+' Some graphical UserControls for your VB application.
+'
+' Copyright © 2006-2007 by Alain Descotes.
+'
+' vkUserControlsXP is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' vkUserControlsXP is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+'
+' =======================================================
+
+
+Option Explicit
+
+Private Sub PropertyPage_Initialize()
+    Check1.Caption = "Prevent systray from Explorer crash." & vbNewLine & _
+        "It uses subclassing, so if you check this option" & vbNewLine & _
+        "you won't be able to subclass by using your own" & vbNewLine & _
+        "WindowProc. If you do not understand what it means," & vbNewLine & "you can check it ;)"
+End Sub
+
+Private Sub txtTime_Change(): Changed = True: End Sub
+Private Sub txtCaption_Change(): Changed = True: End Sub
+
+
+Private Sub PropertyPage_ApplyChanges()
+'on applique les nouvelles properties à tous les controles sélectionnés
+Dim Obj As Object
+    
+    'On Error Resume Next
+    
+    'pour tous les autres controles du bon type, on affecte nos nouvelles valeurs
+    For Each Obj In SelectedControls
+        If TypeOf Obj Is vkSysTray Then
+            With Obj
+                .BalloonTipString = txtCaption.Text
+                .PreventFromCrash = CBool(Check1.Value)
+            End With
+        End If
+    Next Obj
+
+End Sub
+
+Private Sub PropertyPage_SelectionChanged()
+'on affiche dans tous les champs les propriétés du controle à éditer
+
+    With SelectedControls(0)
+        txtCaption.Text = .BalloonTipString
+        Check1.Value = Abs(CInt(.PreventFromCrash))
+    End With
+End Sub

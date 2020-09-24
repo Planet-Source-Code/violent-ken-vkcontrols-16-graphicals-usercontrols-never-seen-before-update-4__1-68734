@@ -1,0 +1,278 @@
+VERSION 5.00
+Begin VB.PropertyPage propToggleButton 
+   Caption         =   "General"
+   ClientHeight    =   4980
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   4800
+   BeginProperty Font 
+      Name            =   "Tahoma"
+      Size            =   8.25
+      Charset         =   0
+      Weight          =   400
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
+   PaletteMode     =   0  'Halftone
+   ScaleHeight     =   4980
+   ScaleWidth      =   4800
+   Begin VB.CheckBox chkValue 
+      Caption         =   "Value"
+      Height          =   255
+      Left            =   120
+      TabIndex        =   18
+      Top             =   4560
+      Width           =   3135
+   End
+   Begin VB.ComboBox cbAlignment 
+      Height          =   315
+      ItemData        =   "propToggleButton.pgx":0000
+      Left            =   1560
+      List            =   "propToggleButton.pgx":000A
+      Style           =   2  'Dropdown List
+      TabIndex        =   11
+      Top             =   3120
+      Width           =   1695
+   End
+   Begin VB.ComboBox cbBackGradient 
+      Height          =   315
+      ItemData        =   "propToggleButton.pgx":0033
+      Left            =   1320
+      List            =   "propToggleButton.pgx":0040
+      Style           =   2  'Dropdown List
+      TabIndex        =   10
+      Top             =   240
+      Width           =   1935
+   End
+   Begin VB.TextBox txtCaption 
+      Height          =   285
+      Left            =   1200
+      TabIndex        =   9
+      Top             =   960
+      Width           =   1935
+   End
+   Begin VB.CheckBox chkEnabled 
+      Caption         =   "Enabled"
+      Height          =   255
+      Left            =   120
+      TabIndex        =   8
+      Top             =   2400
+      Width           =   3015
+   End
+   Begin VB.CheckBox chkBreakCorner 
+      Caption         =   "BreakCorner"
+      Height          =   255
+      Left            =   120
+      TabIndex        =   7
+      Top             =   600
+      Width           =   3015
+   End
+   Begin VB.CheckBox chkDisplayPicture 
+      Caption         =   "DisplayPicture"
+      Height          =   255
+      Left            =   120
+      TabIndex        =   6
+      Top             =   1320
+      Width           =   3015
+   End
+   Begin VB.CheckBox chkDrawFocus 
+      Caption         =   "DrawFocus"
+      Height          =   255
+      Left            =   120
+      TabIndex        =   5
+      Top             =   1680
+      Width           =   3015
+   End
+   Begin VB.CheckBox chkDrawMouseInRect 
+      Caption         =   "DrawMouseInRect"
+      Height          =   255
+      Left            =   120
+      TabIndex        =   4
+      Top             =   2040
+      Width           =   3015
+   End
+   Begin VB.CheckBox chkGrayPictureWhenDisabled 
+      Caption         =   "GrayPictureWhenDisabled"
+      Height          =   255
+      Left            =   120
+      TabIndex        =   3
+      Top             =   2760
+      Width           =   3015
+   End
+   Begin VB.TextBox txtPictureOffsetX 
+      Height          =   285
+      Left            =   1440
+      TabIndex        =   2
+      Top             =   3480
+      Width           =   1815
+   End
+   Begin VB.TextBox txtPictureOffsetY 
+      Height          =   285
+      Left            =   1440
+      TabIndex        =   1
+      Top             =   3840
+      Width           =   1815
+   End
+   Begin VB.ComboBox cbTextPosition 
+      Height          =   315
+      ItemData        =   "propToggleButton.pgx":006C
+      Left            =   1440
+      List            =   "propToggleButton.pgx":0079
+      Style           =   2  'Dropdown List
+      TabIndex        =   0
+      Top             =   4200
+      Width           =   1935
+   End
+   Begin VB.Label Label1 
+      Caption         =   "Picture alignment"
+      Height          =   255
+      Index           =   0
+      Left            =   120
+      TabIndex        =   17
+      Top             =   3120
+      Width           =   1335
+   End
+   Begin VB.Label Label1 
+      Caption         =   "BackGradient"
+      Height          =   255
+      Index           =   1
+      Left            =   120
+      TabIndex        =   16
+      Top             =   240
+      Width           =   975
+   End
+   Begin VB.Label Label1 
+      Caption         =   "Caption"
+      Height          =   255
+      Index           =   3
+      Left            =   120
+      TabIndex        =   15
+      Top             =   960
+      Width           =   975
+   End
+   Begin VB.Label Label2 
+      Caption         =   "PictureOffsetX"
+      Height          =   255
+      Left            =   120
+      TabIndex        =   14
+      Top             =   3480
+      Width           =   1215
+   End
+   Begin VB.Label Label3 
+      Caption         =   "PictureOffsetY"
+      Height          =   255
+      Left            =   120
+      TabIndex        =   13
+      Top             =   3840
+      Width           =   1215
+   End
+   Begin VB.Label Label1 
+      Caption         =   "TextPosition"
+      Height          =   255
+      Index           =   2
+      Left            =   120
+      TabIndex        =   12
+      Top             =   4200
+      Width           =   975
+   End
+End
+Attribute VB_Name = "propToggleButton"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = False
+Attribute VB_Exposed = True
+' =======================================================
+'
+' vkUserControlsXP
+' Coded by violent_ken (Alain Descotes)
+'
+' =======================================================
+'
+' Some graphical UserControls for your VB application.
+'
+' Copyright © 2006-2007 by Alain Descotes.
+'
+' vkUserControlsXP is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' vkUserControlsXP is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+'
+' =======================================================
+
+
+Option Explicit
+
+
+Private Sub cbAlignment_Click(): Changed = True: End Sub
+Private Sub cbBackGradient_Click(): Changed = True: End Sub
+Private Sub cbTextPosition_Click(): Changed = True: End Sub
+Private Sub chkBreakCorner_Click(): Changed = True: End Sub
+Private Sub chkDisplayPicture_Click(): Changed = True: End Sub
+Private Sub chkDrawFocus_Click(): Changed = True: End Sub
+Private Sub chkDrawMouseInRect_Click(): Changed = True: End Sub
+Private Sub chkEnabled_Click(): Changed = True: End Sub
+Private Sub GrayPictureWhenDisabled_Click(): Changed = True: End Sub
+Private Sub chkValue_Click(): Changed = True: End Sub
+Private Sub txtCaption_Change(): Changed = True: End Sub
+Private Sub txtPictureOffsetX_Change(): Changed = True: End Sub
+Private Sub txtPictureOffsetY_Change(): Changed = True: End Sub
+
+
+Private Sub PropertyPage_ApplyChanges()
+'on applique les nouvelles properties à tous les controles sélectionnés
+Dim Obj As Object
+    
+    On Error Resume Next
+    
+    'pour tous les autres controles du bon type, on affecte nos nouvelles valeurs
+    For Each Obj In SelectedControls
+        If TypeOf Obj Is vkToggleButton Then
+            With Obj
+                .BackGradient = cbBackGradient.ListIndex
+                .BreakCorner = CBool(chkBreakCorner.Value)
+                .Caption = txtCaption.Text
+                .DisplayPicture = CBool(chkDisplayPicture.Value)
+                .DrawFocus = CBool(chkDrawFocus.Value)
+                .DrawMouseInRect = CBool(chkDrawMouseInRect.Value)
+                .Enabled = CBool(chkEnabled.Value)
+                .GrayPictureWhenDisabled = CBool(chkGrayPictureWhenDisabled.Value)
+                .PictureAlignment = cbAlignment.ListIndex
+                .PictureOffsetX = Val(txtPictureOffsetX.Text)
+                .PictureOffsetY = Val(txtPictureOffsetY.Text)
+                .TextPosition = cbTextPosition.ListIndex
+                .Value = CBool(chkValue.Value)
+            End With
+        End If
+    Next Obj
+
+End Sub
+
+Private Sub PropertyPage_SelectionChanged()
+'on affiche dans tous les champs les propriétés du controle à éditer
+
+    With SelectedControls(0)
+        cbTextPosition.ListIndex = .TextPosition
+        txtPictureOffsetY.Text = CStr(.PictureOffsetY)
+        txtPictureOffsetX.Text = CStr(.PictureOffsetX)
+        cbAlignment.ListIndex = .PictureAlignment
+        chkGrayPictureWhenDisabled.Value = Abs(CInt(.GrayPictureWhenDisabled))
+        chkEnabled.Value = Abs(CInt(.Enabled))
+        chkDrawMouseInRect.Value = Abs(CInt(.DrawMouseInRect))
+        chkDrawFocus.Value = Abs(CInt(.DrawFocus))
+        chkDisplayPicture.Value = Abs(CInt(.DisplayPicture))
+        txtCaption.Text = .Caption
+        chkBreakCorner.Value = Abs(CInt(.BreakCorner))
+        cbBackGradient.ListIndex = .BackGradient
+        chkValue.Value = Abs(CInt(.Value))
+    End With
+End Sub

@@ -1,0 +1,254 @@
+VERSION 5.00
+Begin VB.PropertyPage propListBoxVScroll 
+   Caption         =   "VScroll"
+   ClientHeight    =   3885
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   4800
+   BeginProperty Font 
+      Name            =   "Tahoma"
+      Size            =   8.25
+      Charset         =   0
+      Weight          =   400
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
+   PaletteMode     =   0  'Halftone
+   ScaleHeight     =   3885
+   ScaleWidth      =   4800
+   Begin VB.TextBox txtScrollHeight 
+      Height          =   285
+      Left            =   1200
+      TabIndex        =   9
+      Top             =   2400
+      Width           =   1935
+   End
+   Begin VB.TextBox txtWheelChange 
+      Height          =   285
+      Left            =   1320
+      TabIndex        =   8
+      Top             =   3480
+      Width           =   1815
+   End
+   Begin VB.TextBox txtLargeChange 
+      Height          =   285
+      Left            =   1200
+      TabIndex        =   7
+      Top             =   960
+      Width           =   1935
+   End
+   Begin VB.CheckBox chkEnableWheel 
+      Caption         =   "EnableWheel"
+      Height          =   255
+      Left            =   120
+      TabIndex        =   6
+      Top             =   600
+      Width           =   1695
+   End
+   Begin VB.TextBox txtMax 
+      Height          =   285
+      Left            =   1200
+      TabIndex        =   5
+      Top             =   1320
+      Width           =   1935
+   End
+   Begin VB.CheckBox chkEnabled 
+      Caption         =   "Enabled"
+      Height          =   255
+      Left            =   120
+      TabIndex        =   4
+      Top             =   240
+      Width           =   1215
+   End
+   Begin VB.TextBox txtMin 
+      Height          =   285
+      Left            =   1200
+      TabIndex        =   3
+      Top             =   1680
+      Width           =   1935
+   End
+   Begin VB.TextBox txtMouseInterval 
+      Height          =   285
+      Left            =   1320
+      TabIndex        =   2
+      Top             =   2040
+      Width           =   1815
+   End
+   Begin VB.TextBox txtSmallChange 
+      Height          =   285
+      Left            =   1200
+      TabIndex        =   1
+      Top             =   2760
+      Width           =   1935
+   End
+   Begin VB.TextBox txtValue 
+      Height          =   285
+      Left            =   1200
+      TabIndex        =   0
+      Top             =   3120
+      Width           =   1935
+   End
+   Begin VB.Label Label1 
+      Caption         =   "ScrollHeight"
+      Height          =   255
+      Index           =   8
+      Left            =   120
+      TabIndex        =   17
+      Top             =   2400
+      Width           =   975
+   End
+   Begin VB.Label Label1 
+      Caption         =   "WheelChange"
+      Height          =   255
+      Index           =   7
+      Left            =   120
+      TabIndex        =   16
+      Top             =   3480
+      Width           =   1095
+   End
+   Begin VB.Label Label1 
+      Caption         =   "LargeChange"
+      Height          =   255
+      Index           =   6
+      Left            =   120
+      TabIndex        =   15
+      Top             =   960
+      Width           =   975
+   End
+   Begin VB.Label Label1 
+      Caption         =   "Max"
+      Height          =   255
+      Index           =   3
+      Left            =   120
+      TabIndex        =   14
+      Top             =   1320
+      Width           =   975
+   End
+   Begin VB.Label Label1 
+      Caption         =   "Min"
+      Height          =   255
+      Index           =   1
+      Left            =   120
+      TabIndex        =   13
+      Top             =   1680
+      Width           =   975
+   End
+   Begin VB.Label Label1 
+      Caption         =   "MouseInterval"
+      Height          =   255
+      Index           =   2
+      Left            =   120
+      TabIndex        =   12
+      Top             =   2040
+      Width           =   1095
+   End
+   Begin VB.Label Label1 
+      Caption         =   "SmallChange"
+      Height          =   255
+      Index           =   4
+      Left            =   120
+      TabIndex        =   11
+      Top             =   2760
+      Width           =   975
+   End
+   Begin VB.Label Label1 
+      Caption         =   "Value"
+      Height          =   255
+      Index           =   5
+      Left            =   120
+      TabIndex        =   10
+      Top             =   3120
+      Width           =   975
+   End
+End
+Attribute VB_Name = "propListBoxVScroll"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = False
+Attribute VB_Exposed = True
+' =======================================================
+'
+' vkUserControlsXP
+' Coded by violent_ken (Alain Descotes)
+'
+' =======================================================
+'
+' Some graphical UserControls for your VB application.
+'
+' Copyright © 2006-2007 by Alain Descotes.
+'
+' vkUserControlsXP is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' vkUserControlsXP is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+'
+' =======================================================
+
+
+Option Explicit
+
+
+Private Sub chkEnabled_Click(): Changed = True: End Sub
+Private Sub chkEnableWheel_Click(): Changed = True: End Sub
+Private Sub txtLargeChange_Change(): Changed = True: End Sub
+Private Sub txtMax_Change(): Changed = True: End Sub
+Private Sub txtMin_Change(): Changed = True: End Sub
+Private Sub txtMouseInterval_Change(): Changed = True: End Sub
+Private Sub txtScrollHeight_Change(): Changed = True: End Sub
+Private Sub txtSmallChange_Change(): Changed = True: End Sub
+Private Sub txtValue_Change(): Changed = True: End Sub
+Private Sub txtWheelChange_Change(): Changed = True: End Sub
+
+
+Private Sub PropertyPage_ApplyChanges()
+'on applique les nouvelles properties à tous les controles sélectionnés
+Dim Obj As Object
+    
+    'On Error Resume Next
+    
+    'pour tous les autres controles du bon type, on affecte nos nouvelles valeurs
+    For Each Obj In SelectedControls
+        If TypeOf Obj Is vkListBox Then
+            With Obj.VScroll
+                .Enabled = CBool(chkEnabled.Value)
+                '.Max = Val(txtMax.Text)
+                '.Min = Val(txtMin.Text)
+                .MouseInterval = Val(txtMouseInterval.Text)
+                .SmallChange = Val(txtSmallChange.Text)
+                '.Value = Val(txtValue.Text)
+                .EnableWheel = CBool(chkEnableWheel.Value)
+                .LargeChange = Val(txtLargeChange.Text)
+                .ScrollHeight = Val(txtScrollHeight.Text)
+                .WheelChange = Val(txtWheelChange.Text)
+            End With
+        End If
+    Next Obj
+
+End Sub
+
+Private Sub PropertyPage_SelectionChanged()
+'on affiche dans tous les champs les propriétés du controle à éditer
+
+    With SelectedControls(0).VScroll
+        chkEnabled.Value = Abs(CInt(.Enabled))
+        txtMax.Text = CStr(.Max)
+        txtMin.Text = CStr(.Min)
+        txtMouseInterval.Text = CStr(.MouseInterval)
+        txtSmallChange.Text = CStr(.SmallChange)
+        txtValue.Text = CStr(.Value)
+        chkEnableWheel.Value = Abs(CInt(.EnableWheel))
+        txtLargeChange.Text = CStr(.LargeChange)
+        txtScrollHeight.Text = CStr(.ScrollHeight)
+        txtWheelChange.Text = CStr(.WheelChange)
+    End With
+End Sub
